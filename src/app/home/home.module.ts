@@ -1,3 +1,6 @@
+import { LoginPage } from './../pages/login/login.page';
+import { GlobePage } from './../pages/globe/globe.page';
+import { GlobePageModule } from './../pages/globe/globe.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -12,8 +15,9 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    // GlobePageModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, LoginPage, GlobePage]
 })
 export class HomePageModule {}

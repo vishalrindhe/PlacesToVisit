@@ -11,6 +11,18 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'globe',
+    loadChildren: () => import('./pages/globe/globe.module').then( m => m.GlobePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'registration',
+    loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
+  },
 ];
 
 @NgModule({
