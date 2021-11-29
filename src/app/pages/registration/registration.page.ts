@@ -18,10 +18,9 @@ import { ToastController } from '@ionic/angular';
 })
 // implements OnInit
 export class RegistrationPage {
-  registrationForm: FormGroup;
-  loginform: FormGroup;
+  registrationform: FormGroup;
   constructor(private router: Router, public toastController: ToastController) {
-    this.loginform = new FormGroup({
+    this.registrationform = new FormGroup({
       firstName: new FormControl('', [
         Validators.required,
         Validators.pattern('[a-zA-Z]{4,8}$'),
@@ -71,18 +70,18 @@ export class RegistrationPage {
     const today = new Date();
 
     if(date >= today){
-      this.loginform.controls.dob.setErrors({dateExceed: 'text of the error'});
+      this.registrationform.controls.dob.setErrors({dateExceed: 'text of the error'});
     }
   }
 
   submit() {
-    console.log('form data', this.loginform.value.username);
+    console.log('form data', this.registrationform.value.username);
     // eslint-disable-next-line eqeqeq
     if (
       // eslint-disable-next-line eqeqeq
-      this.loginform.value.username == 'abcd' &&
+      this.registrationform.value.username == 'abcd' &&
       // eslint-disable-next-line eqeqeq
-      this.loginform.get('password').value == 'abc1'
+      this.registrationform.get('password').value == 'abc1'
     ) {
       this.router.navigate(['/home']);
     }
@@ -90,11 +89,11 @@ export class RegistrationPage {
 
   register(){
     const userData = {
-      firstName:this.loginform.value.firstName,
-      lastName:this.loginform.value.lastName,
-      email:this.loginform.value.email,
-      password:this.loginform.value.password,
-      dob:this.loginform.value.dob
+      firstName:this.registrationform.value.firstName,
+      lastName:this.registrationform.value.lastName,
+      email:this.registrationform.value.email,
+      password:this.registrationform.value.password,
+      dob:this.registrationform.value.dob
     };
 
     // console.log(localStorage.getItem('userData'));
@@ -103,7 +102,7 @@ export class RegistrationPage {
       a.push(userData);
       localStorage.setItem('userData',JSON.stringify(a));
     } else{
-      let emailPresent = false
+      let emailPresent = false;
       const data  = JSON.parse(localStorage.getItem('userData'));
       console.log('data found:',data);
       data.forEach(element => {

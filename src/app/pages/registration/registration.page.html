@@ -46,7 +46,7 @@
             <ion-datetime name="dob" placeholder="Select Date" display-timezone="utc"></ion-datetime>
           </ion-item> -->
 
-              <form class="ion-padding" [formGroup]="loginform">
+              <form class="ion-padding" [formGroup]="registrationform">
                 <ion-item>
                   <ion-label color="medium" position="floating"
                     >First Name</ion-label
@@ -60,7 +60,7 @@
                 </ion-item>
                 <div
                   class="error"
-                  *ngIf="loginform.get('firstName').touched && loginform.get('firstName').hasError('required')"
+                  *ngIf="registrationform.get('firstName').touched && registrationform.get('firstName').hasError('required')"
                 >
                   <small>&nbsp;&nbsp;&nbsp;&nbsp; First Name required</small>
                 </div>
@@ -78,7 +78,7 @@
                 </ion-item>
                 <div
                   class="error"
-                  *ngIf="loginform.get('lastName').touched && loginform.get('lastName').hasError('required')"
+                  *ngIf="registrationform.get('lastName').touched && registrationform.get('lastName').hasError('required')"
                 >
                   <small>&nbsp;&nbsp;&nbsp;&nbsp; Last Name required</small>
                 </div>
@@ -96,7 +96,7 @@
                 </ion-item>
                 <div
                   class="error"
-                  *ngIf="loginform.get('email').touched && loginform.get('email').hasError('required')"
+                  *ngIf="registrationform.get('email').touched && registrationform.get('email').hasError('required')"
                 >
                   <small>&nbsp;&nbsp;&nbsp;&nbsp; Email required</small>
                 </div>
@@ -114,7 +114,7 @@
                 </ion-item>
                 <div
                   class="error"
-                  *ngIf="loginform.get('password').touched && loginform.get('password').hasError('required')"
+                  *ngIf="registrationform.get('password').touched && registrationform.get('password').hasError('required')"
                 >
                   <small>&nbsp;&nbsp;&nbsp;&nbsp; Password required</small>
                 </div>
@@ -138,14 +138,14 @@
                 </ion-item>
                 <div
                   class="error"
-                  *ngIf="loginform.get('dob').touched && loginform.get('dob').hasError('required')"
+                  *ngIf="registrationform.get('dob').touched && registrationform.get('dob').hasError('required')"
                 >
                   <small>&nbsp;&nbsp;&nbsp;&nbsp; DOB required</small>
                 </div>
 
                 <div
                   class="error"
-                  *ngIf="loginform.get('dob').touched && loginform.get('dob').hasError('dateExceed')"
+                  *ngIf="registrationform.get('dob').touched && registrationform.get('dob').hasError('dateExceed')"
                 >
                   <small>&nbsp;&nbsp;&nbsp;&nbsp; DOB should not greater than today's date</small>
                 </div>
@@ -174,7 +174,7 @@
                 size="default"
                 style="height: 125%"
                 (click)="register()"
-                [disabled]="loginform.invalid"
+                [disabled]="registrationform.invalid"
               >
                 <span style="margin: 5% 0%">Register</span>
                 <!-- Login -->
