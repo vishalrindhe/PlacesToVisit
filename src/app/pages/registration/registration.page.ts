@@ -8,6 +8,7 @@ import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -19,7 +20,7 @@ import { Router } from '@angular/router';
 export class RegistrationPage {
   registrationForm: FormGroup;
   loginform: FormGroup;
-  constructor(private router: Router) {
+  constructor(private router: Router, public toastController: ToastController) {
     this.loginform = new FormGroup({
       firstName: new FormControl('', [
         Validators.required,
@@ -42,6 +43,27 @@ export class RegistrationPage {
         Validators.required
       ])
     });
+  }
+
+  async presentToast(message,color) {
+    const toast = await this.toastController.create({
+      // eslint-disable-next-line object-shorthand
+      message: message,
+      position: 'top',
+      // eslint-disable-next-line object-shorthand
+      color: color,
+      duration: 2000,
+      buttons: [
+        {
+          text: 'X',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
   getDate(e) {
@@ -86,7 +108,8 @@ export class RegistrationPage {
       console.log('data found:',data);
       data.forEach(element => {
         if(element.email === userData.email){
-          alert('email present');
+          // alert('email present');
+          this.presentToast('Email already registered','danger');
           emailPresent = true;
         }
       });
@@ -94,6 +117,10 @@ export class RegistrationPage {
       if(!emailPresent){
         data.push(userData);
         localStorage.setItem('userData',JSON.stringify(data));
+        this.presentToast('Registered Successfully','success');
+        setTimeout(() => {
+          this.router.navigateByUrl('/home');
+        }, 2000);
       }
 
     }
