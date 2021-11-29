@@ -74,18 +74,6 @@ export class RegistrationPage {
     }
   }
 
-  submit() {
-    console.log('form data', this.registrationform.value.username);
-    // eslint-disable-next-line eqeqeq
-    if (
-      // eslint-disable-next-line eqeqeq
-      this.registrationform.value.username == 'abcd' &&
-      // eslint-disable-next-line eqeqeq
-      this.registrationform.get('password').value == 'abc1'
-    ) {
-      this.router.navigate(['/home']);
-    }
-  }
 
   register(){
     const userData = {
@@ -93,7 +81,9 @@ export class RegistrationPage {
       lastName:this.registrationform.value.lastName,
       email:this.registrationform.value.email,
       password:this.registrationform.value.password,
-      dob:this.registrationform.value.dob
+      dob:this.registrationform.value.dob,
+      placesToVisit : [],
+      placesVisited : []
     };
 
     // console.log(localStorage.getItem('userData'));
@@ -101,6 +91,10 @@ export class RegistrationPage {
       const a = [];
       a.push(userData);
       localStorage.setItem('userData',JSON.stringify(a));
+      this.presentToast('Registered Successfully','success');
+        setTimeout(() => {
+          this.router.navigateByUrl('/home');
+        }, 2000);
     } else{
       let emailPresent = false;
       const data  = JSON.parse(localStorage.getItem('userData'));

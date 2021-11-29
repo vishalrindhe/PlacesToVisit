@@ -21,6 +21,7 @@
       <ion-row>
         <ion-col size="6">
           <!-- <page-globe></page-globe> -->
+<img src="../../../assets/images/globe.jpg" alt="">
         </ion-col>
         <ion-col size="5">
           <ion-card>
@@ -47,41 +48,49 @@
           </ion-item> -->
 
               <form class="ion-padding" [formGroup]="registrationform">
-                <ion-item>
-                  <ion-label color="medium" position="floating"
-                    >First Name</ion-label
-                  >
-                  <ion-input
-                    color="dark"
-                    autocapitalize="characters"
-                    name="first-name"
-                    formControlName="firstName"
-                  ></ion-input>
-                </ion-item>
-                <div
-                  class="error"
-                  *ngIf="registrationform.get('firstName').touched && registrationform.get('firstName').hasError('required')"
-                >
-                  <small>&nbsp;&nbsp;&nbsp;&nbsp; First Name required</small>
-                </div>
-
-                <ion-item>
-                  <ion-label color="medium" position="floating"
-                    >Last Name</ion-label
-                  >
-                  <ion-input
-                    color="dark"
-                    autocapitalize="characters"
-                    name="last-name"
-                    formControlName="lastName"
-                  ></ion-input>
-                </ion-item>
-                <div
-                  class="error"
-                  *ngIf="registrationform.get('lastName').touched && registrationform.get('lastName').hasError('required')"
-                >
-                  <small>&nbsp;&nbsp;&nbsp;&nbsp; Last Name required</small>
-                </div>
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-item>
+                      <ion-label color="medium" position="floating"
+                        >First Name</ion-label
+                      >
+                      <ion-input
+                        color="dark"
+                        autocapitalize="characters"
+                        name="first-name"
+                        formControlName="firstName"
+                      ></ion-input>
+                    </ion-item>
+                    <div
+                      class="error"
+                      *ngIf="registrationform.get('firstName').touched && registrationform.get('firstName').hasError('required')"
+                    >
+                      <small>&nbsp;&nbsp;&nbsp;&nbsp; First Name required</small>
+                    </div>
+                    
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-item>
+                      <ion-label color="medium" position="floating"
+                        >Last Name</ion-label
+                      >
+                      <ion-input
+                        color="dark"
+                        autocapitalize="characters"
+                        name="last-name"
+                        formControlName="lastName"
+                      ></ion-input>
+                    </ion-item>
+                    <div
+                      class="error"
+                      *ngIf="registrationform.get('lastName').touched && registrationform.get('lastName').hasError('required')"
+                    >
+                      <small>&nbsp;&nbsp;&nbsp;&nbsp; Last Name required</small>
+                    </div>
+                  </ion-col>
+                </ion-row>
+                
+                
 
                 <ion-item>
                   <ion-label color="medium" position="floating"

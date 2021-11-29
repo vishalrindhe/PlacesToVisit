@@ -1,3 +1,4 @@
+import { DataService } from './../../../assets/services/data.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ export class LoginPage {
 
   loggedIn = false;
   loginform: FormGroup;
-  constructor(private router: Router, public toastController: ToastController) {
+  constructor(private router: Router, public toastController: ToastController, private data: DataService) {
     this.loginform = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -51,13 +52,21 @@ export class LoginPage {
   submit() {
   let passwordNotMatch = false;
     // eslint-disable-next-line eqeqeq
-    const data: any = JSON.parse(localStorage.getItem('userData'));
+    const data: any = JSON.parse(localStorage.getItem('userData') || '[]');
     data.forEach(element => {
       if(element.email === this.loginform.value.email){
         if(element.password === this.loginform.value.password){
+          const userName = element.firstName;
           this.presentToast('Login Successful','success');
           this.router.navigate(['/dashboard']);
           this.loggedIn = true;
+          this.data.loggedIn = true;
+          this.data.userName = element.firstName;
+          this.data.userEmail = element.email;
+
+          localStorage.setItem('userLoggedInName',element.firstName);
+          localStorage.setItem('userLoggedIn',element.email);
+
         } else{
           passwordNotMatch = true;
           // this.presentToast('Password is incorrect','warning');
