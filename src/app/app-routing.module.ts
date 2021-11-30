@@ -29,14 +29,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
     canActivate: [AuthGuard]
   },
-  {
-    path: 'places-visited-form',
-    loadChildren: () => import('./pages/places-visited-form/places-visited-form.module').then( m => m.PlacesVisitedFormPageModule)
-  },
-  {
-    path: 'places-to-visit-form',
-    loadChildren: () => import('./pages/places-to-visit-form/places-to-visit-form.module').then( m => m.PlacesToVisitFormPageModule)
-  }
+  // {
+  //   path: 'places-visited-form',
+  //   loadChildren: () => import('./pages/places-visited-form/places-visited-form.module').then( m => m.PlacesVisitedFormPageModule)
+  // },
+  // {
+  //   path: 'places-to-visit-form',
+  //   loadChildren: () => import('./pages/places-to-visit-form/places-to-visit-form.module').then( m => m.PlacesToVisitFormPageModule)
+  // }
   // {
   //   path: 'places-to-visit',
   //   loadChildren: () => import('./pages/places-to-visit/places-to-visit.module').then( m => m.PlacesToVisitPageModule)

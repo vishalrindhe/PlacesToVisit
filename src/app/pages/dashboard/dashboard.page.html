@@ -3,7 +3,7 @@
     <ion-buttons slot="secondary">
       <ion-button>
         <ion-icon  name="person-circle"></ion-icon>
-        {{data.userName}}
+        {{data.userName | titlecase}}
       </ion-button>
       <!-- <ion-button>
         <ion-icon slot="icon-only" name="search"></ion-icon>
@@ -33,15 +33,15 @@
     <ion-tab-bar slot="bottom" color="dark">
 
       <ion-tab-button tab="places-to-visit">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>Schedule</ion-label>
+        <ion-icon name="earth"></ion-icon>
+        <ion-label>Want to Visit</ion-label>
       </ion-tab-button>
 
       <ion-tab-button tab="places-visited">
         <!-- <ion-segment-button value="python"> -->
-        <ion-icon name="calendar"></ion-icon>
+        <ion-icon name="airplane"></ion-icon>
 
-          <ion-label>Places To Visit</ion-label> 
+          <ion-label>Visited</ion-label> 
         <!-- </ion-segment-button> -->
       </ion-tab-button>
     </ion-tab-bar>
