@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { element } from 'protractor';
 import { DataService } from 'src/assets/services/data.service';
 import { Component, OnInit } from '@angular/core';
