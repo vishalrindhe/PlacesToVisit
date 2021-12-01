@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { element } from 'protractor';
 import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -47,9 +48,10 @@ export class PlacesToVisitFormPage{
 
     localStorage.setItem('userData',JSON.stringify(usersData));
     this.data.userDB = JSON.parse(localStorage.getItem('userData'));
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     this.data.userDB.forEach(element => {
       if(element.email == this.data.userEmail){
-        this.data.userData = element
+        this.data.userData = element;
       }
     });
 

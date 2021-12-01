@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { element } from 'protractor';
 import { Injectable } from '@angular/core';
 
@@ -20,9 +21,7 @@ export class DataService {
         this.userData = element;
       }
     });
-
     console.log(this.userData);
     console.log(this.userDB);
-    
   }
 }

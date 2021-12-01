@@ -1,6 +1,7 @@
+import { PlacesVisitedFormPage } from './../places-visited-form/places-visited-form.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +14,9 @@ import { PlacesVisitedPage } from './places-visited.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PlacesVisitedPageRoutingModule
+    PlacesVisitedPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [PlacesVisitedPage]
+  declarations: [PlacesVisitedPage,PlacesVisitedFormPage]
 })
 export class PlacesVisitedPageModule {}
