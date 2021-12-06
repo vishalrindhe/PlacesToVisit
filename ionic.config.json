@@ -1,5 +1,7 @@
 {
   "name": "placedOfAttraction",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

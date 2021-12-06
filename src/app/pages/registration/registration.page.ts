@@ -1,4 +1,4 @@
-import { DataService } from './../../../assets/services/data.service';
+import { DataService } from '../../services/data.service';
 import { Component, Inject, NgZone, PLATFORM_ID, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as am5 from '@amcharts/amcharts5';

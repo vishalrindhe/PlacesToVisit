@@ -1,13 +1,18 @@
+
+
 <ion-header>
   <ion-toolbar color="dark">
+    <!-- <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
     <ion-buttons slot="secondary">
       <ion-button>
         <ion-icon  name="person-circle"></ion-icon>
         {{data.userName | titlecase}}
       </ion-button>
-      <!-- <ion-button>
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button> -->
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="primary" (click)="logOut()">
       <ion-button >
@@ -18,9 +23,11 @@
     
     <ion-title>DashBoard</ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+  
   <!-- <ion-segment (ionChange)="segmentChanged($event)" swipeGesture="true" value="javascript">
     <ion-segment-button value="python">
       <ion-label>Places To Visit</ion-label> 
@@ -46,6 +53,7 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+
 </ion-content>
 
 

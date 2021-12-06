@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { DataService } from 'src/assets/services/data.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-places-visited-form',

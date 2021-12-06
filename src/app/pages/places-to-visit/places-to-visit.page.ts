@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable eqeqeq */
 import { element } from 'protractor';
-import { DataService } from 'src/assets/services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';

@@ -1,11 +1,10 @@
 /* eslint-disable eqeqeq */
-import { element } from 'protractor';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DataService implements OnInit {
   hero = 0;
   loggedIn = false;
   userName = '';
@@ -14,6 +13,11 @@ export class DataService {
   userDB;
 
   constructor() {
+    // console.log(this.userData);
+    // console.log(this.userDB);
+  }
+  // eslint-disable-next-line @angular-eslint/contextual-lifecycle
+  ngOnInit(){
     this.userDB = JSON.parse(localStorage.getItem('userData'));
     // eslint-disable-next-line @typescript-eslint/no-shadow
     this.userDB.forEach(element => {
@@ -21,7 +25,5 @@ export class DataService {
         this.userData = element;
       }
     });
-    console.log(this.userData);
-    console.log(this.userDB);
   }
 }

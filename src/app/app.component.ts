@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-import { DataService } from './../assets/services/data.service';
+import { DataService } from './services/data.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 

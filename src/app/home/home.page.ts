@@ -1,4 +1,4 @@
-import { DataService } from './../../assets/services/data.service';
+import { DataService } from '../services/data.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ export class HomePage {
   ) {
     if (
       localStorage.getItem('userLoggedIn') != null ||
+
       localStorage.getItem('userLoggedIn') !== undefined ||
       localStorage.getItem('userLoggedIn') !== ''
     ) {

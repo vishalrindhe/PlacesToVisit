@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
-import { DataService } from 'src/assets/services/data.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-places-visited',
