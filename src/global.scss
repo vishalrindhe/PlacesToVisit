@@ -33,3 +33,11 @@
     font-size: 40vh; //Preferred size here
     color: #8F9092;
 }
+.disable{
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.cursor:hover{
+    cursor: pointer;
+}

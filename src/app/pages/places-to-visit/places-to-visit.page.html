@@ -9,10 +9,10 @@
   <!-- <ion-grid fixed> -->
     
     <ion-row>
-      <ion-col size="12" sizeSm="4">
+      <!-- <ion-col size="12" sizeSm="4">
         <app-places-to-visit-form></app-places-to-visit-form>
-      </ion-col>
-      <ion-col size="8">
+      </ion-col> -->
+      <ion-col size="12">
         <!-- <app-places-to-visit-form></app-places-to-visit-form> -->
         <div *ngIf="data.userData.placesToVisit.length > 0; then thenBlock else elseBlock"></div>
         <ng-template #thenBlock>
@@ -22,54 +22,70 @@
           </ion-item>
         </ion-list> -->
 
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>{{item.place | titlecase}}</h2>
-            <p *ngIf="item.preference == 1">Preference: Minimum</p>
-            <p *ngIf="item.preference == 2">Preference: Medium</p>
-            <p *ngIf="item.preference == 3">Preference: High</p>
+        <!-- <ion-item> -->
+          <ion-card>
+            <ion-img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw=="></ion-img>
 
-            <p>Estimated Cost: &#8377;{{item.estimatedCost}}</p>
-          </ion-label>
-          <ion-icon name="create-outline" slot="end"></ion-icon>
-          <ion-icon name="trash" color="danger" slot="end" (click)="delete(i)"></ion-icon>
-        </ion-item>
+            <ion-card-header>
+              <!-- <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> -->
+              <ion-card-title>
+                <!-- <ion-grid fixed> -->
+                  <ion-row>
+                    <ion-col size="9" sizeSm="11" style="font-size: 4.5vh;">
+                      <!-- <span> -->
+                        {{item.place | titlecase}}
+
+                      <!-- </span> -->
+
+                    </ion-col>
+                    <ion-col size="">
+                <span>
+                  <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                  <ion-icon class="disable" name="create-outline" slot="end"></ion-icon>
+                  <ion-icon class="cursor" name="trash" color="danger" slot="end" (click)="delete(i)"></ion-icon>
+                </span>
+                    </ion-col>
+                  </ion-row>
+
+              </ion-card-title>
+              
+            </ion-card-header>
+            <ion-card-content>
+                <p *ngIf="item.preference == 1">Preference: Minimum</p>
+                <p *ngIf="item.preference == 2">Preference: Medium</p>
+                <p *ngIf="item.preference == 3">Preference: High</p>
+                <p>Estimated Cost: &#8377;{{item.estimatedCost}}</p>
+            </ion-card-content>
+          </ion-card>
+
         </ion-list>
       </ng-template>
       <ion-fab slot="fixed">
         <ion-fab-button>Button</ion-fab-button>
       </ion-fab>
       <ng-template #elseBlock >
-        <!-- <span>Fill details to add content inside list</span> -->
-        <!-- <ion-icon style="size: 12vh;" name="skull-outline"></ion-icon> -->
-        <!-- <ion-label>Data not available.</ion-label> -->
-        <!-- <ion-content [fullscreen]="true"> -->
-        
-          <div id="container" style="height: 100%;justify-content: center;align-items: center;display: grid;">
-            <!-- <strong>Ready to create an app?</strong> -->
-            <!-- <div > -->
-              <ion-row style="height: 100%;justify-content: center;align-items: center;display: grid;">
-              <ion-icon class="ion-icon1" name="create-outline"></ion-icon>
-              </ion-row>
-            <!-- </div> -->
-            <span>Fill details to add content inside list</span>
-          </div>
-        <!-- </ion-content> -->
+        <ion-grid fixed class="ion-grid1">
+          <ion-row class="ion-row1">
+            <div id="container" class="ion-text-center" >
+              <div >
+                <ion-icon class="ion-icon1" name="create-outline"></ion-icon>
+              </div>
+              <span>Fill details to add content inside list</span>
+            </div>
+          </ion-row>
+        </ion-grid>
       </ng-template>
       </ion-col>
     </ion-row>
   <!-- </ion-grid> -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentModal()">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   
 
-
+<!-- 
   <ion-toolbar>
     <ion-title>Title Only</ion-title>
   </ion-toolbar>
@@ -112,4 +128,4 @@
     </ion-buttons>
     <ion-title>Dark Toolbar</ion-title>
   </ion-toolbar>
-</ion-content>
+</ion-content> -->

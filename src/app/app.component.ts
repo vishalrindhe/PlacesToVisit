@@ -2,6 +2,7 @@
 import { DataService } from './services/data.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private data: DataService, private router: Router) {
+  constructor(public data: DataService, private router: Router,private menu: MenuController) {
     if (localStorage.getItem('userLoggedIn') == null ||
       localStorage.getItem('userLoggedIn') == undefined ||
       localStorage.getItem('userLoggedIn') == '') {
@@ -27,5 +28,15 @@ export class AppComponent {
       }
     });
     }
+  }
+
+  logOut(){
+    localStorage.removeItem('userLoggedIn');
+    localStorage.removeItem('userLoggedInName');
+    this.data.userName = '';
+    this.data.loggedIn = false;
+    this.router.navigateByUrl('home');
+    // this.menu.close('content1');
+    this.menu.toggle();
   }
 }

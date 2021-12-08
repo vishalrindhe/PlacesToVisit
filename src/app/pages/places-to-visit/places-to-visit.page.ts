@@ -1,3 +1,4 @@
+import { PlacesToVisitFormPage } from './../places-to-visit-form/places-to-visit-form.page';
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable eqeqeq */
 import { element } from 'protractor';
@@ -5,6 +6,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-places-to-visit',
@@ -15,7 +17,8 @@ export class PlacesToVisitPage implements OnInit {
   constructor(
     public data: DataService,
     public alertController: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    public modalController: ModalController
   ) {}
 
   ngOnInit() {}
@@ -100,5 +103,13 @@ export class PlacesToVisitPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: PlacesToVisitFormPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 }
