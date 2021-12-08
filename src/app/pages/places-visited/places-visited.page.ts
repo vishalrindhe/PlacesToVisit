@@ -1,6 +1,7 @@
+import { PlacesVisitedFormPage } from './../places-visited-form/places-visited-form.page';
 /* eslint-disable eqeqeq */
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class PlacesVisitedPage {
   constructor(
     public data: DataService,
     public alertController: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    public modalController: ModalController
   ) {}
 
 
@@ -75,22 +77,22 @@ export class PlacesVisitedPage {
           handler: () => {
             // console.log('Confirm Okay');
 
-            // this.data.userDB.forEach((element) => {
-            //   if (element.email == this.data.userEmail) {
-            //     element.placesToVisit.splice(i, 1);
-            //     localStorage.setItem(
-            //       'userData',
-            //       JSON.stringify(this.data.userDB)
-            //     );
-            //   }
-            // });
-            // this.data.userDB = JSON.parse(localStorage.getItem('userData'));
-            // this.data.userDB.forEach((element) => {
-            //   if (element.email == this.data.userEmail) {
-            //     this.data.userData = element;
-            //   }
-            // });
-            // this.presentToast('Record Deleted','success');
+            this.data.userDB.forEach((element) => {
+              if (element.email == this.data.userEmail) {
+                element.placesVisited.splice(i, 1);
+                localStorage.setItem(
+                  'userData',
+                  JSON.stringify(this.data.userDB)
+                );
+              }
+            });
+            this.data.userDB = JSON.parse(localStorage.getItem('userData'));
+            this.data.userDB.forEach((element) => {
+              if (element.email == this.data.userEmail) {
+                this.data.userData = element;
+              }
+            });
+            this.presentToast('Record Deleted','success');
           },
         },
       ],
@@ -98,6 +100,12 @@ export class PlacesVisitedPage {
 
     await alert.present();
   }
-
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: PlacesVisitedFormPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
 
 }
