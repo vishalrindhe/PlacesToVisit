@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 // import { element } from 'protractor';
 /* eslint-disable eqeqeq */
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController, ToastController } from '@ionic/angular';
@@ -12,12 +12,21 @@ import { FileChooser } from '@ionic-native/file-chooser/ngx';
   templateUrl: './places-visited-form.page.html',
   styleUrls: ['./places-visited-form.page.scss'],
 })
-export class PlacesVisitedFormPage {
+export class PlacesVisitedFormPage implements OnInit {
+  @Input() place;
+  @Input() placesDescription;
+  @Input() dateOfJourney;
+  @Input() totalExpense;
+  @Input() images;
+  @Input() rating;
+  @Input() url: any;
+  @Input() index;
   placesVisited: FormGroup;
-  url =  [];
+  // url =  [];
   selectedImage = [];
   rate=[0];
   imgData=[];
+
     constructor(
     private router: Router,
     public toastController: ToastController,
@@ -25,21 +34,29 @@ export class PlacesVisitedFormPage {
     public modalController: ModalController,
     private fileChooser: FileChooser
   ) {
+
+  }
+
+  ngOnInit() {
+
     this.placesVisited = new FormGroup({
-      place: new FormControl('', [
+      place: new FormControl(this.place, [
         Validators.required,
         Validators.pattern('[a-zA-Z]{2,12}$'),
       ]),
-      placesDescription: new FormControl('', [
+      placesDescription: new FormControl(this.placesDescription, [
         Validators.required,
         // Validators.pattern('[a-zA-Z]{2,12}$'),
       ]),
-      dateOfJourney: new FormControl('', [Validators.required]),
-      totalExpense: new FormControl('', [Validators.required]),
-      images: new FormControl('', [Validators.required]),
+      dateOfJourney: new FormControl(this.dateOfJourney, [Validators.required]),
+      totalExpense: new FormControl(this.totalExpense, [Validators.required]),
+      images: new FormControl(this.images, [Validators.required]),
       // video: new FormControl(),
-      rating: new FormControl(''),
+      rating: new FormControl(this.rating,[Validators.required]),
     });
+
+    console.log(':',this.index);
+
   }
   addImageButtonClick(fileLoader){
     // this.userInputViewChild.nativeElement.click();
@@ -67,9 +84,14 @@ export class PlacesVisitedFormPage {
     // eslint-disable-next-line @typescript-eslint/no-shadow
     usersData.forEach((element) => {
       if (element.email === this.data.userEmail) {
-        element.placesVisited.push(data);
+        if(this.index != undefined){
+          element.placesVisited[this.index] = data;
+        } else{
+          element.placesVisited.push(data);
+        }
       }
     });
+  
 
     localStorage.setItem('userData', JSON.stringify(usersData));
     this.data.userDB = JSON.parse(localStorage.getItem('userData'));

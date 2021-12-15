@@ -10,6 +10,14 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./places-visited.page.scss'],
 })
 export class PlacesVisitedPage {
+          place='';
+          placesDescription='';
+          dateOfJourney='';
+          totalExpense='';
+          images='';
+          rating='';
+          url = [];
+          index;
 
   constructor(
     public data: DataService,
@@ -101,11 +109,59 @@ export class PlacesVisitedPage {
     await alert.present();
   }
   async presentModal() {
+    console.log(':',this.place,
+    ':',this.placesDescription,
+    ':',this.dateOfJourney,
+    ':',this.totalExpense,
+    ':',this.images,
+    ':',this.rating,
+    ':',this.url);
     const modal = await this.modalController.create({
       component: PlacesVisitedFormPage,
-      cssClass: 'my-custom-class'
+      cssClass: 'my-custom-class',
+      componentProps:{
+          place:this.place,
+          placesDescription:this.placesDescription,
+          dateOfJourney:this.dateOfJourney,
+          totalExpense:this.totalExpense,
+          images:this.images,
+          rating:this.rating,
+          url: this.url,
+          index:this.index
+      }
     });
     return await modal.present();
+  }
+
+   empty(){
+    this.place='';
+    this.placesDescription='';
+    this.dateOfJourney='';
+    this.totalExpense='';
+    this.images='';
+    this.rating='';
+    this.url = [];
+    this.index=undefined;
+  }
+
+
+  update(i){
+    this.place=this.data.userData.placesVisited[i].place;
+    this.placesDescription=this.data.userData.placesVisited[i].placesDescription;
+    this.dateOfJourney=this.data.userData.placesVisited[i].dateOfJourney;
+    this.totalExpense= this.data.userData.placesVisited[i].totalExpense;
+    this.images= this.data.userData.placesVisited[i].images;
+    this.url= this.data.userData.placesVisited[i].images;
+    this.rating= this.data.userData.placesVisited[i].rating;
+    this.index = i;
+    // console.log(':',this.place,
+    // ':',this.placesDescription,
+    // ':',this.dateOfJourney,
+    // ':',this.totalExpense,
+    // ':',this.images,
+    // ':',this.rating,
+    // ':',this.url);
+    this.presentModal();
   }
 
 }

@@ -32,7 +32,7 @@
                 </ion-item> -->
           <ion-item>
             <ion-label color="medium" position="stacked">Visited place</ion-label>
-            <ion-input value={{name}} color="dark" autocapitalize="characters" name="place" formControlName="place" 
+            <ion-input color="dark" autocapitalize="characters" name="place" formControlName="place" 
               placeholder="ex. Mumbai">
             </ion-input>
           </ion-item>
@@ -49,7 +49,7 @@
             <ion-label color="medium" position="stacked">Journey Experience</ion-label>
             <!-- <ion-input color="dark" autocapitalize="characters" name="place" formControlName="place" placeholder="ex. Mumbai">
                 </ion-input> -->
-            <ion-textarea name="placesDescription" formControlName="placesDescription" placeholder="Describe your journey experience here..."></ion-textarea>
+            <ion-textarea value={{placesDescription}} name="placesDescription" formControlName="placesDescription" placeholder="Describe your journey experience here..."></ion-textarea>
           </ion-item>
           <div class="error"
             *ngIf="placesVisited.get('placesDescription').touched && placesVisited.get('placesDescription').hasError('required')">
@@ -83,7 +83,7 @@
             <!-- </ion-grid> -->
 
 
-                <input #fileLoader id="fileLoader" type="file" class="hideInput" name="images" formControlName="images" multiple accept="image/png, image/jpeg" 
+                <input #fileLoader id="fileLoader" value={{images}} type="file" class="hideInput" name="images" formControlName="images" multiple accept="image/png, image/jpeg" 
                 (change)="imageData($event)" hidden/>
 
                   <!-- <ion-icon name="camera"></ion-icon>
@@ -114,7 +114,7 @@
 
           <ion-item>
             <ion-label color="medium" position="floating">Date of Journey</ion-label>
-            <ion-datetime color="danger" name="dob1" placeholder="Select Date" display-timezone="utc"
+            <ion-datetime value={{dateOfJourney}} color="danger" name="dob1" placeholder="Select Date" display-timezone="utc"
               formControlName="dateOfJourney" (ionChange)="getDate($event)">
             </ion-datetime>
           </ion-item>
@@ -129,7 +129,7 @@
           <!-- <ion-col> -->
           <ion-item>
             <ion-label color="medium" position="stacked">Estimated Expense</ion-label>
-            <ion-range color="warning" min="0" max="10000" step="1000" ticks="true" snaps="true" name="totalExpense"
+            <ion-range value={{totalExpense}} color="warning" min="0" max="10000" step="1000" ticks="true" snaps="true" name="totalExpense"
               pin="true" formControlName="totalExpense">
               <ion-label slot="start">0</ion-label>
               <ion-label slot="end">10000</ion-label>
@@ -160,7 +160,7 @@
                   defaultColor = "#aaaaaa"
                   readonly = "false"
                   halfStar = "true"
-                  rating = "2"
+                  rating = "3.5"
                   fontSize = "32px"
                   formControlName="rating"
                   (ratingChanged)="onRatingChange($event)">
