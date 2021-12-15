@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PlacesVisitedFormPageRoutingModule } from './places-visited-form-routing.module';
 
 import { PlacesVisitedFormPage } from './places-visited-form.page';
+import { IonicRatingComponentModule } from 'ionic-rating-component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { PlacesVisitedFormPage } from './places-visited-form.page';
     FormsModule,
     IonicModule,
     PlacesVisitedFormPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IonicRatingComponentModule
   ],
   declarations: [PlacesVisitedFormPage]
 })

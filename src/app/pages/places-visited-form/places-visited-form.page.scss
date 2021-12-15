@@ -1,0 +1,35 @@
+.images{
+
+}
+
+.images:hover{
+    // opacity: 0.1;
+    // color: royalblue;
+    // background: red;
+    opacity: 0.2;
+    content: url("./../../../assets/images/close-circle-outline.svg");
+    list-style-image: url("./../../../assets/images/close-circle-outline.svg")
+}
+
+ion-img{
+    max-height: 70%;
+}
+
+#file-input {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 999;
+  }
+
+  .hideInput{
+    // position: absolute;
+    // bottom: -100000000px;
+}
+
+ion-input[type=file]{
+    position: absolute; width: 0; height: 0; opacity: 0;
+}

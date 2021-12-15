@@ -13,6 +13,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class PlacesToVisitFormPage {
   placesToVisit: FormGroup;
+  rate;
   constructor(
     private router: Router,
     public toastController: ToastController,
