@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>gallary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-slides [options]="sliderOpts" zoom>
+  <ion-slide *ngFor="let item of images">
+    <img src={{item}} alt="">
+  </ion-slide>
+</ion-slides>
+</ion-content>

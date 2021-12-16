@@ -29,6 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'gallary',
+    loadChildren: () => import('./pages/gallary/gallary.module').then( m => m.GallaryPageModule)
+  },
   // {
   //   path: 'places-visited-form',
   //   loadChildren: () => import('./pages/places-visited-form/places-visited-form.module').then( m => m.PlacesVisitedFormPageModule)

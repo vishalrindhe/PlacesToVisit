@@ -39,4 +39,11 @@ export class AppComponent {
     // this.menu.close('content1');
     this.menu.toggle();
   }
+
+  gallary(){
+    this.router.navigateByUrl('gallary');
+    this.menu.toggle();
+  }
 }
+
+
