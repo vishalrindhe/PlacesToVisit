@@ -1,13 +1,20 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header color="dark">
+  <ion-toolbar color="dark">
     <ion-title>gallary</ion-title>
+    <ion-button slot="end" color="danger" fill="outline" size="default" (click)="modalDismiss()">
+      <ion-icon name="close"></ion-icon>
+      <!-- close -->
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-slides [options]="sliderOpts" zoom>
-  <ion-slide *ngFor="let item of images">
-    <img src={{item}} alt="">
-  </ion-slide>
-</ion-slides>
+<ion-content fixed fullscreen="true" color="light" class="center">
+  <ion-slides [options]="sliderOpts" pager zoom fullscreen="true">
+    <ion-slide class="imgbox" *ngFor="let item of images">
+      <!-- <div class="imgbox"> -->
+        <img class="center-fit" src="{{item}}" />
+      <!-- </div> -->
+      <!-- <ion-img  src={{item}} alt="" fullscreen="true"></ion-img> -->
+    </ion-slide>
+  </ion-slides>
 </ion-content>

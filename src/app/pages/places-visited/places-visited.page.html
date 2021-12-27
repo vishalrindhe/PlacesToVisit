@@ -26,10 +26,17 @@
 
           <!-- <ion-item> -->
           <ion-card>
-            <ion-img
-            width="70" height="20"
-            src={{item.images[0]}}
-            ></ion-img>
+            <ion-thumbnail>
+              <ion-img class="images" src={{item.images[0]}} ></ion-img>
+              <!-- <ion-img class="images" src="{{item}}" width="300" height="300" (click)="presentModal(i)" ></ion-img> -->
+            </ion-thumbnail>
+            <!-- <div>
+              <ion-img
+              width="70" height="59vw"
+              src={{item.images[0]}}
+              ></ion-img>
+            </div> -->
+            
 
             <ion-card-header>
               <!-- <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> -->

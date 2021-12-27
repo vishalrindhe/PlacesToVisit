@@ -1,0 +1,70 @@
+// ion-img{
+//     max-height: 70%;
+// }
+
+
+.main-card {
+    // background: var(--ion-color-primary);
+    // border-radius: 8px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin: 12px;
+    // overflow: hidden;
+    // ion-col {
+    // //   display: flex;
+    //   justify-content: center;
+    // //   padding: 4px;
+    // height: 50px;
+    // width: 50px;
+    ion-img{
+        // height: 100px; 
+        // height: 50px;
+    // width: 50px;
+    }
+    // }
+    // ion-card {
+    //   background: #55bdef;
+    //   margin-bottom: 12px;
+    //   margin-top: 12px;
+    //   width: 100%;
+    // }
+
+  }
+
+
+
+
+// div.gallery {
+//     margin: 5px;
+//     border: 1px solid #ccc;
+//     float: left;
+//     width: 180px;
+//   }
+  
+//   div.gallery:hover {
+//     border: 1px solid #777;
+//   }
+  
+//   div.gallery img {
+//     width: 100%;
+//     height: auto;
+//   }
+  
+//   div.desc {
+//     padding: 15px;
+//     text-align: center;
+//   }
+
+
+
+ion-thumbnail{
+  --size:31vw
+}
+
+// @media screen and (max-width: 380px) 
+// // and (min-width: 600px), (min-width: 1100px)
+//  {
+//   ion-thumbnail{
+//     --size:50vh
+//   }
+// }

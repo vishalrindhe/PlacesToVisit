@@ -1,0 +1,67 @@
+<ion-header color="dark">
+  <ion-toolbar color="dark">
+    <ion-title>gallary</ion-title>
+    <ion-button slot="end" color="danger" fill="outline" size="default" (click)="modalDismiss()">
+      <ion-icon name="close"></ion-icon>
+      <!-- close -->
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content fullscreen="true">
+  <ion-row class="ion-margin-top ion-margin-bottom">
+
+    <ion-col *ngFor="let item of  images;let i = index" size="4" class="center">
+      <ion-img class="images" src="{{item}}" width=""  ></ion-img>
+    </ion-col>
+  </ion-row>
+</ion-content>  -->
+
+<ion-content>
+<div color="primary" class="main-card">
+  <ion-row>
+    <ion-col *ngFor="let item of  images;let i = index" size="4" class="center">
+      <ion-thumbnail>
+      <ion-img class="images" src="{{item}}" (click)="presentModal(i)" ></ion-img>
+      <!-- <ion-img class="images" src="{{item}}" width="300" height="300" (click)="presentModal(i)" ></ion-img> -->
+    </ion-thumbnail>
+      <!-- <ion-card>
+        <ion-card-content>
+          <ion-row class="ion-justify-content-center">
+            <ion-icon class="home-icons" name="flash"></ion-icon>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-text>a very long text that takes a lot of vertical space</ion-text>
+          </ion-row>
+        </ion-card-content>
+      </ion-card> -->
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-row class="ion-justify-content-center">
+            <ion-icon class="home-icons" name="flash"></ion-icon>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-text>a very long text that takes a lot of vertical space</ion-text>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-row class="ion-justify-content-center">
+            <ion-icon class="home-icons" name="add"></ion-icon>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-text>simple text</ion-text>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row> -->
+</div>
+</ion-content>

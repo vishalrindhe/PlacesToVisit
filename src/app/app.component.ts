@@ -41,7 +41,7 @@ export class AppComponent {
   }
 
   gallary(){
-    this.router.navigateByUrl('gallary');
+    this.router.navigateByUrl('grid-gallary');
     this.menu.toggle();
   }
 }

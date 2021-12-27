@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'gallary',
     loadChildren: () => import('./pages/gallary/gallary.module').then( m => m.GallaryPageModule)
   },
+  {
+    path: 'grid-gallary',
+    loadChildren: () => import('./pages/grid-gallary/grid-gallary.module').then( m => m.GridGallaryPageModule)
+  },
   // {
   //   path: 'places-visited-form',
   //   loadChildren: () => import('./pages/places-visited-form/places-visited-form.module').then( m => m.PlacesVisitedFormPageModule)

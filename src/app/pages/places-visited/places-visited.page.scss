@@ -20,3 +20,23 @@ span{
 p{
     font-size: 2.5vh;
 }
+
+div{
+    // height: 100%;
+    // margin: 0;
+    // padding: 0;
+  }
+  
+  ion-img {
+    // padding: 0;
+    // display: block;
+    height: 44vw;
+    // width: 300px !;
+    // margin: 0 auto;
+    // max-height: 100%;
+    // max-width: 100%;
+  }
+
+  ion-thumbnail{
+    --size:100%
+  }

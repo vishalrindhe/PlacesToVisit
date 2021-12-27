@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { ModalController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-places-visited-form',
   templateUrl: './places-visited-form.page.html',
@@ -32,9 +34,25 @@ export class PlacesVisitedFormPage implements OnInit {
     public toastController: ToastController,
     private data: DataService,
     public modalController: ModalController,
-    private fileChooser: FileChooser
+    private fileChooser: FileChooser,
+    public loadingController: LoadingController
   ) {
+      this.presentLoadingWithOptions();
+  }
 
+  async presentLoadingWithOptions() {
+    const loading = await this.loadingController.create({
+      spinner: 'bubbles',
+      duration: 1000,
+      message: 'Click the backdrop to dismiss early...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: true
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed with role:', role);
   }
 
   ngOnInit() {
